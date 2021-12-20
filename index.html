@@ -10,15 +10,15 @@
 </head>
 <body id="body">
     <h1>Welcome to your Library!</h1>
+
 <!--Open modal-->
     <button id="bookform">Add a new Book</button>
     <!--The Modal-->
-<div id="mymodal" class="modal">
+    <div id="mymodal" class="modal">
     <!--Modal Content-->
-    <div class="modal-content">
+     <div class="modal-content">
         <span class="close">&times;</span>
         <p>Please enter the following Data:</p>
-
         <form>
             <label for="title">Title:</label>
             <input type="text" id="title" name="title"><br>
@@ -28,18 +28,21 @@
             <input type="number" id="pages" name="pages"><br>
             <label for="read">Already read?</label>
             <input type="checkbox" id="read" name="read">
-            
-            
         </form>
         <button id="addbook">Add Book</button>
     </div>
-
 </div>
-
-
+<h2>Your Books</h2>
+    <table id="table">
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Pages</th>
+            <th>Utility</th>
+        </tr>
+        </table>
+        
 
     
-
-    <div id="test"></div>
 </body>
 </html>
