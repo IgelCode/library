@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+h1 {
+  display: flex;
+  justify-content: center;
+}
+#bookform {
+  align-self: center;
+  margin-top: 50px;
+}
+button {
+  width: 100px;
+  height: 50px;
+}
+.modal {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  width: 500px;
+  height: 300px;
+  overflow: auto;
+  background-color: rgb(211, 202, 202);
+  border-radius: 20px;
+  margin-top: 50px;
+}
+.modal-content {
+  background-color: #fefefe;
+  margin: 0;
+  padding: 20px;
+  border: 1px solid;
+  width: 100%;
+  border-radius: 20px;
+}
+.close {
+  float: right;
+  color: grey;
+  font-size: 25px;
+  border: solid;
+  border-radius: 10px;
+}
+.close:hover {
+  cursor: pointer;
+  color: black;
+}
