@@ -91,7 +91,7 @@ function appendLibrary() {
     let libutility = document.createElement("td");
 
     let btn = document.createElement("button");
-    btn.textContent = "Click Me";
+    btn.textContent = "Toggle Read";
     btn.onclick = function isRead() {
       if (libread.textContent == "read") {
         libread.textContent = "unread";
