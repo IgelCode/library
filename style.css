@@ -53,11 +53,11 @@ button {
   color: black;
 }
 table {
-  flex-direction: column;
+  width: 90%;
   background-color: grey;
   margin-top: 20px;
+  margin-left: 5%;
   text-align: center;
-  margin-top: 20px;
   padding: 5px;
 }
 td {
