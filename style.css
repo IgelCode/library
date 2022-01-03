@@ -55,4 +55,10 @@ button {
 table {
   background-color: grey;
   margin-top: 20px;
+  text-align: center;
+  margin-top: 20px;
+  padding: 5px;
+}
+td {
+  background-color: white;
 }

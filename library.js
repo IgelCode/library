@@ -4,14 +4,47 @@ const addbook = document.querySelector("#addbook");
 const modal = document.getElementById("mymodal");
 const body = document.getElementById("body");
 let myLibrary = [];
+let table = document.querySelector("#table");
 
+function cleanTable() {
+  let row = document.createElement("tr");
+  let title = document.createElement("th");
+  let author = document.createElement("th");
+  let pages = document.createElement("th");
+  let utility = document.createElement("th");
+
+  author.textContent = "Author";
+  title.textContent = "Title";
+  pages.textContent = "Pages";
+  utility.textContent = "Utility";
+
+  table.appendChild(row);
+  row.appendChild(title);
+  row.appendChild(author);
+  row.appendChild(pages);
+  row.appendChild(utility);
+}
+
+//open modal to input new book
 bookform.addEventListener("click", openModal);
 
 function openModal() {
   modal.style.display = "block";
 }
 
+//adding a book to the library in the background
 addbook.addEventListener("click", addBooktoLibrary);
+
+function addBooktoLibrary() {
+  myLibrary.push(
+    new book(title.value, author.value, pages.value, read.checked)
+  );
+  while (table.firstChild) {
+    table.firstChild.remove();
+  }
+  cleanTable();
+  appendLibrary();
+}
 
 span.onclick = function () {
   modal.style.display = "none";
@@ -22,6 +55,7 @@ window.onclick = function (event) {
   }
 };
 
+//Book Object constructor
 function book(title, author, pages, read) {
   this.title = title;
   this.author = author;
@@ -47,10 +81,24 @@ function book(title, author, pages, read) {
   };
 }
 
-function addBooktoLibrary() {
-  myLibrary.push(
-    new book(title.value, author.value, pages.value, read.checked)
-  );
+//Adding the books in DOM
+function appendLibrary() {
+  let i;
+  for (i = 0; i < myLibrary.length; i++) {
+    let tr = document.createElement("tr");
+    let libtitle = document.createElement("td");
+    let libauthor = document.createElement("td");
+    let libpages = document.createElement("td");
+
+    libtitle.textContent = myLibrary[i].title;
+    libauthor.textContent = myLibrary[i].author;
+    libpages.textContent = myLibrary[i].pages;
+
+    table.appendChild(tr);
+    tr.appendChild(libauthor);
+    tr.appendChild(libtitle);
+    tr.appendChild(libpages);
+  }
 }
 
 myLibrary = [
@@ -91,6 +139,8 @@ myLibrary = [
     },
   },
 ];
+
+appendLibrary();
 
 // Test:
 /*
