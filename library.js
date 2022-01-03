@@ -64,13 +64,7 @@ function book(title, author, pages, read) {
   this.title = title;
   this.author = author;
   this.pages = pages;
-  this.read = function () {
-    if (readed == true) {
-      return "read";
-    } else {
-      return "unread";
-    }
-  };
+  this.read = readed.checked ? "read" : "unread";
   this.info = function () {
     return (
       this.title +
@@ -94,6 +88,19 @@ function appendLibrary() {
     let libauthor = document.createElement("td");
     let libpages = document.createElement("td");
     let libread = document.createElement("td");
+    let libutility = document.createElement("td");
+
+    let btn = document.createElement("button");
+    btn.textContent = "Click Me";
+    btn.onclick = function isRead() {
+      if (libread.textContent == "read") {
+        libread.textContent = "unread";
+      } else {
+        libread.textContent = "read";
+      }
+    };
+
+    libutility.appendChild(btn);
 
     libtitle.textContent = myLibrary[i].title;
     libauthor.textContent = myLibrary[i].author;
@@ -105,6 +112,7 @@ function appendLibrary() {
     tr.appendChild(libauthor);
     tr.appendChild(libpages);
     tr.appendChild(libread);
+    tr.appendChild(libutility);
   }
 }
 
