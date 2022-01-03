@@ -11,17 +11,20 @@ function cleanTable() {
   let title = document.createElement("th");
   let author = document.createElement("th");
   let pages = document.createElement("th");
+  let read = document.createElement("th");
   let utility = document.createElement("th");
 
   author.textContent = "Author";
   title.textContent = "Title";
   pages.textContent = "Pages";
+  read.textContent = "Read";
   utility.textContent = "Utility";
 
   table.appendChild(row);
   row.appendChild(title);
   row.appendChild(author);
   row.appendChild(pages);
+  row.appendChild(read);
   row.appendChild(utility);
 }
 
@@ -37,7 +40,7 @@ addbook.addEventListener("click", addBooktoLibrary);
 
 function addBooktoLibrary() {
   myLibrary.push(
-    new book(title.value, author.value, pages.value, read.checked)
+    new book(title.value, author.value, pages.value, readed.checked)
   );
   while (table.firstChild) {
     table.firstChild.remove();
@@ -46,6 +49,7 @@ function addBooktoLibrary() {
   appendLibrary();
 }
 
+//Modal Button
 span.onclick = function () {
   modal.style.display = "none";
 };
@@ -60,11 +64,11 @@ function book(title, author, pages, read) {
   this.title = title;
   this.author = author;
   this.pages = pages;
-  this.read = function readed() {
-    if (read == true) {
-      return "readed";
+  this.read = function () {
+    if (readed == true) {
+      return "read";
     } else {
-      return "unreaded";
+      return "unread";
     }
   };
   this.info = function () {
@@ -89,18 +93,22 @@ function appendLibrary() {
     let libtitle = document.createElement("td");
     let libauthor = document.createElement("td");
     let libpages = document.createElement("td");
+    let libread = document.createElement("td");
 
     libtitle.textContent = myLibrary[i].title;
     libauthor.textContent = myLibrary[i].author;
     libpages.textContent = myLibrary[i].pages;
+    libread.textContent = myLibrary[i].read;
 
     table.appendChild(tr);
-    tr.appendChild(libauthor);
     tr.appendChild(libtitle);
+    tr.appendChild(libauthor);
     tr.appendChild(libpages);
+    tr.appendChild(libread);
   }
 }
 
+//My Library Array with 2 test Books, you should read them.
 myLibrary = [
   {
     title: "Harry Potter",
@@ -141,14 +149,3 @@ myLibrary = [
 ];
 
 appendLibrary();
-
-// Test:
-/*
-const theHobbit = new book(
-  "The Hobbit",
-  "J.R.R. Tolkien",
-  "295",
-  "not read yet"
-);
-console.log(theHobbit.info());
-*/
