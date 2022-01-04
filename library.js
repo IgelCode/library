@@ -47,6 +47,11 @@ function addBooktoLibrary() {
   }
   cleanTable();
   appendLibrary();
+  modal.style.display = "none";
+  title.value = "";
+  author.value = "";
+  pages.value = "";
+  readed.checked = false;
 }
 
 //Modal Button
@@ -90,9 +95,10 @@ function appendLibrary() {
     let libread = document.createElement("td");
     let libutility = document.createElement("td");
 
-    let btn = document.createElement("button");
-    btn.textContent = "Toggle Read";
-    btn.onclick = function isRead() {
+    //Button to toggle read
+    let readbtn = document.createElement("button");
+    readbtn.textContent = "Toggle Read";
+    readbtn.onclick = function isRead() {
       if (libread.textContent == "read") {
         libread.textContent = "unread";
       } else {
@@ -100,7 +106,15 @@ function appendLibrary() {
       }
     };
 
-    libutility.appendChild(btn);
+    //Button to delete the row
+    let delbtn = document.createElement("button");
+    delbtn.textContent = "Delete";
+    delbtn.onclick = function erase() {
+      table.removeChild(tr);
+    };
+
+    libutility.appendChild(delbtn);
+    libutility.appendChild(readbtn);
 
     libtitle.textContent = myLibrary[i].title;
     libauthor.textContent = myLibrary[i].author;
