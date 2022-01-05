@@ -111,7 +111,6 @@ function appendLibrary() {
     delbtn.textContent = "Delete";
     delbtn.id = i;
     delbtn.onclick = function erase() {
-      console.log(delbtn.id);
       myLibrary.splice(delbtn.id, 1);
       table.removeChild(tr);
       while (table.firstChild) {
