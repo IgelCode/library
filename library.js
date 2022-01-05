@@ -84,7 +84,7 @@ function book(title, author, pages, read) {
   };
 }
 
-//Adding the books in DOM
+//Adding the books/new rows in DOM
 function appendLibrary() {
   let i;
   for (i = 0; i < myLibrary.length; i++) {
@@ -109,8 +109,16 @@ function appendLibrary() {
     //Button to delete the row
     let delbtn = document.createElement("button");
     delbtn.textContent = "Delete";
+    delbtn.id = i;
     delbtn.onclick = function erase() {
+      console.log(delbtn.id);
+      myLibrary.splice(delbtn.id, 1);
       table.removeChild(tr);
+      while (table.firstChild) {
+        table.firstChild.remove();
+      }
+      cleanTable();
+      appendLibrary();
     };
 
     libutility.appendChild(delbtn);
