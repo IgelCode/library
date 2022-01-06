@@ -109,9 +109,10 @@ function appendLibrary() {
     //Button to delete the row
     let delbtn = document.createElement("button");
     delbtn.textContent = "Delete";
-    delbtn.id = i;
+    delbtn.dataset.lul = i;
+    console.log(delbtn.dataset.lul);
     delbtn.onclick = function erase() {
-      myLibrary.splice(delbtn.id, 1);
+      myLibrary.splice(delbtn.dataset.lul, 1);
       table.removeChild(tr);
       while (table.firstChild) {
         table.firstChild.remove();
@@ -119,10 +120,8 @@ function appendLibrary() {
       cleanTable();
       appendLibrary();
     };
-
     libutility.appendChild(delbtn);
     libutility.appendChild(readbtn);
-
     libtitle.textContent = myLibrary[i].title;
     libauthor.textContent = myLibrary[i].author;
     libpages.textContent = myLibrary[i].pages;
