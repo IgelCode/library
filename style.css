@@ -22,13 +22,23 @@ button {
   width: 100px;
   height: 50px;
 }
+.delbtn,
+.readbtn {
+  width: 80px;
+  height: 40px;
+}
+.libutility {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 5px;
+}
 .modal {
   display: none;
   margin-top: 300px;
   position: fixed;
   align-self: center;
   align-items: center;
-  bottom: 20px;
+  bottom: 200px;
   z-index: 1;
   width: 600px;
   height: 400px;

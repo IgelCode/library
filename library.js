@@ -94,9 +94,11 @@ function appendLibrary() {
     let libpages = document.createElement("td");
     let libread = document.createElement("td");
     let libutility = document.createElement("td");
+    libutility.className = "libutility";
 
     //Button to toggle read
     let readbtn = document.createElement("button");
+    readbtn.className = "readbtn";
     readbtn.textContent = "Toggle Read";
     readbtn.onclick = function isRead() {
       if (libread.textContent == "read") {
@@ -108,9 +110,9 @@ function appendLibrary() {
 
     //Button to delete the row
     let delbtn = document.createElement("button");
+    delbtn.className = "delbtn";
     delbtn.textContent = "Delete";
     delbtn.dataset.lul = i;
-    console.log(delbtn.dataset.lul);
     delbtn.onclick = function erase() {
       myLibrary.splice(delbtn.dataset.lul, 1);
       table.removeChild(tr);
