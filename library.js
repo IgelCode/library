@@ -6,6 +6,7 @@ const body = document.getElementById("body");
 let myLibrary = [];
 let table = document.querySelector("#table");
 
+//Making a new empty table
 function cleanTable() {
   let row = document.createElement("tr");
   let title = document.createElement("th");
@@ -35,6 +36,16 @@ function openModal() {
   modal.style.display = "block";
 }
 
+//Modal Button
+span.onclick = function () {
+  modal.style.display = "none";
+};
+window.onclick = function (event) {
+  if (event.target == (body || table) && modal.style.display == "block") {
+    modal.style.display = "none";
+  }
+};
+
 //adding a book to the library in the background
 addbook.addEventListener("click", addBooktoLibrary);
 
@@ -53,16 +64,6 @@ function addBooktoLibrary() {
   pages.value = "";
   readed.checked = false;
 }
-
-//Modal Button
-span.onclick = function () {
-  modal.style.display = "none";
-};
-window.onclick = function (event) {
-  if (event.target == (body || table) && modal.style.display == "block") {
-    modal.style.display = "none";
-  }
-};
 
 //Book Object constructor
 function book(title, author, pages, read) {
